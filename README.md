@@ -102,9 +102,3 @@ Vous pouvez facilement modifier certains paramètres :
 - Le code peut être étendu pour gérer des mises variables, plus de joueurs, ou une interface graphique.
 
 **Amusez-vous bien et que le meilleur gagne !** ♠️♥️♦️♣️
-
-L'IA n'est pas parfaite : elle ne bluffe pas et ses décisions sont basées sur des règles simples.
-
-Le code peut être étendu pour gérer des mises variables, plus de joueurs, ou une interface graphique.
-
-Amusez-vous bien et que le meilleur gagne ! ♠️♥️♦️♣️
