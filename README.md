@@ -33,26 +33,25 @@ Ce projet est un jeu de poker en mode console, conçu pour un affrontement entre
 
 3. Suivez les instructions dans la console pour jouer.
 
-🎮 Comment jouer
+## 🎮 Comment jouer
+
 Le jeu commence par la distribution de deux cartes privées à chaque joueur.
 
 À chaque tour d'enchères, des actions vous sont proposées :
 
-1.Check : Si personne n'a misé avant vous.
+- **1. Check** : Si personne n'a misé avant vous.
+- **2. Bet** : Miser 1 jeton.
+- **3. All-in** : Miser tous vos jetons restants.
 
-2.Bet : Miser 1 jeton.
+Si l'adversaire a misé, vous devez choisir entre :
+- **1. Call** (suivre)
+- **2. Fold** (se coucher)
 
-3.All-in : Miser tous vos jetons restants.
-
-Si l'adversaire a misé, vous devez choisir entre 1.Call (suivre) ou 2.Fold (se coucher).
-
-Après le flop, le turn et la river, les cartes communes sont révélées.
-
-Au showdown, la meilleure main remporte le pot.
-
+Après le flop, le turn et la river, les cartes communes sont révélées.  
+Au showdown, la meilleure main remporte le pot.  
 À la fin de chaque main, vous pouvez choisir de continuer ou d'arrêter.
 
-Exemple de déroulement :
+**Exemple de déroulement :**
 //////// Jeu commencé ! ////////
 //////// Distribution des cartes ////////
 //////// Flop ////////
@@ -62,55 +61,47 @@ Joueur IA : ['QH', '9S'] / Stack : 5
 Montant du pot: 0
 (Joueur 1) Choisissez une action : 1.Check / 2.Bet / 3.All-in
 
-📜 Règles du jeu
-Mises : Les mises sont fixes à 1 jeton (sauf All-in).
 
-Stacks : Chaque joueur commence avec 5 jetons.
+## 📜 Règles du jeu
 
-Détermination du gagnant : Les mains sont classées selon la hiérarchie standard du poker (quinte flush > carré > full > couleur > suite > brelan > double paire > paire > carte haute).
+- **Mises** : Les mises sont fixes à 1 jeton (sauf All-in).
+- **Stacks** : Chaque joueur commence avec 5 jetons.
+- **Détermination du gagnant** : Les mains sont classées selon la hiérarchie standard du poker (quinte flush > carré > full > couleur > suite > brelan > double paire > paire > carte haute).
+- **Égalité** : En cas d'égalité de combinaison, la carte la plus haute départage (kicker).
+- **IA** : L'IA adapte son comportement selon qu'elle est en position de mise ou non, la force de sa main, et la présence de tirages.
 
-Égalité : En cas d'égalité de combinaison, la carte la plus haute départage (kicker).
+## 🧠 Structure du code
 
-IA : L'IA adapte son comportement selon qu'elle est en position de mise ou non, la force de sa main, et la présence de tirages.
-
-🧠 Structure du code
 Le code est organisé en fonctions principales :
 
-init() : Mélange le paquet.
+- `init()` : Mélange le paquet.
+- `distribute_cards()` : Distribue deux cartes à chaque joueur.
+- `show_cards_board()` : Ajoute des cartes communes au tableau.
+- `card_value()` : Convertit une carte en valeur numérique.
+- `determine_hand()` : Identifie la combinaison d'une main.
+- `calculate_outs()` : Vérifie les tirages (flush, straight).
+- `determine_best_cards()` : Calcule un score pour départager les égalités.
+- `determine_winner()` : Compare les deux mains.
+- `determine_action_playerAI()` : Logique de décision de l'IA.
+- `decide_actions()` : Gère le déroulement des tours d'enchères.
+- **Boucle principale** : Enchaîne les phases de jeu.
 
-distribute_cards() : Distribue deux cartes à chaque joueur.
+## 🔧 Personnalisation
 
-show_cards_board() : Ajoute des cartes communes au tableau.
-
-card_value() : Convertit une carte en valeur numérique.
-
-determine_hand() : Identifie la combinaison d'une main.
-
-calculate_outs() : Vérifie les tirages (flush, straight).
-
-determine_best_cards() : Calcule un score pour départager les égalités.
-
-determine_winner() : Compare les deux mains.
-
-determine_action_playerAI() : Logique de décision de l'IA.
-
-decide_actions() : Gère le déroulement des tours d'enchères.
-
-Boucle principale : Enchaîne les phases de jeu.
-
-🔧 Personnalisation
 Vous pouvez facilement modifier certains paramètres :
 
-Taille des stacks : Changez les valeurs initiales hero_stack et villain_stack.
+- **Taille des stacks** : Changez les valeurs initiales `hero_stack` et `villain_stack`.
+- **Montant des mises** : Ajustez la valeur des bets (actuellement 1) dans les fonctions de gestion des actions.
+- **Comportement de l'IA** : Modifiez les seuils dans `determine_action_playerAI()` pour rendre l'IA plus agressive ou plus passive.
+- **Affichage** : Adaptez les messages pour améliorer l'interface.
 
-Montant des mises : Ajustez la valeur des bets (actuellement 1) dans les fonctions de gestion des actions.
+## ⚠️ Remarques
 
-Comportement de l'IA : Modifiez les seuils dans determine_action_playerAI() pour rendre l'IA plus agressive ou plus passive.
+- Ce jeu est une simulation simplifiée du poker, idéale pour comprendre la logique d'un jeu de cartes en Python.
+- L'IA n'est pas parfaite : elle ne bluffe pas et ses décisions sont basées sur des règles simples.
+- Le code peut être étendu pour gérer des mises variables, plus de joueurs, ou une interface graphique.
 
-Affichage : Adaptez les messages pour améliorer l'interface.
-
-⚠️ Remarques
-Ce jeu est une simulation simplifiée du poker, idéale pour comprendre la logique d'un jeu de cartes en Python.
+**Amusez-vous bien et que le meilleur gagne !** ♠️♥️♦️♣️
 
 L'IA n'est pas parfaite : elle ne bluffe pas et ses décisions sont basées sur des règles simples.
 
